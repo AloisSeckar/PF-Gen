@@ -92,8 +92,9 @@
 					<p>
 					<label for="stamp">Add frame:</label>
 					<select name="stamp" id="stamp">
-					  <option value="bg1.png" <?php if ($_POST["stamp"] == "bg1.png") echo "selected"; ?>>Frame v.1</option>
-					  <option value="bg2.png" <?php if ($_POST["stamp"] == "bg2.png") echo "selected"; ?>>Frame v.2</option>
+					  <option value="bg3.png" <?php if ($_POST["stamp"] == "bg3.png") echo "selected"; ?>>Svobodní Patrioti pro Prahu 4</option>
+					  <option value="bg1.png" <?php if ($_POST["stamp"] == "bg1.png") echo "selected"; ?>>Svobodní 2022 v.1</option>
+					  <option value="bg2.png" <?php if ($_POST["stamp"] == "bg2.png") echo "selected"; ?>>Svobodní 2022 v.2</option>
 					</select>
 					</p>
 					<input type="file" name="fileToUpload" id="fileToUpload" style="display:none;" onchange="this.form.submit();" ondrag="this.form.submit();"/>
