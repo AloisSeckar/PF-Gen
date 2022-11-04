@@ -2,8 +2,7 @@
 	<head>
 		<title>PF-Gen</title>
 		<meta charset="UTF-8">
-		<meta name="description" content="PF-Gen - Adding frame around social media profile photo">
-		<meta name="keywords" content="Images, Watermark, Social media, Facebook, Photo, Frame, Programming, Demo, PHP">
+		<meta name="description" content="Enhance your social media profile picture with a frame">
 		<meta name="author" content="Alois Sečkár">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -15,7 +14,7 @@
 	
 	<body>
 	<?php
-		$message = "Select image to be enhanced with frame (JPG or PNG)";
+		$message = "Choose a file you want to enhance with a frame (JPG or PNG)";
 		$alert_type = "alert-info";
 		$output = null;
 		$img_dir = "tmp/";
@@ -62,19 +61,19 @@
 						
 						$output = $target_file;
 						
-						$message = "Image ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " was processed";
+						$message = "File ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " was sućcessfully processed<br />Feel free to download the result and use it as your new profile picture";
 						$alert_type = "alert-success";
 						
 					} else {
-						$message = "Error during processing image";
+						$message = "Error during file uploading";
 						$alert_type = "alert-danger";
 					}
 				} else {
-					$message = "File isn't supported image format (JPG or PNG)";
+					$message = "File type is not supported (JPG or PNG only)";
 					$alert_type = "alert-danger";
 				}
 			} catch (Exception $e) {
-				$message = "Error during processing image";
+				$message = "Error during file processing";
 				$alert_type = "alert-danger";
 			} 
 		}
@@ -83,32 +82,43 @@
 	
 		<div class="container text-center">
 			<h1>PF-Gen</h1>
-			<h2>Adding frame around social media profile photo</h2>
+			<h2>Enhance your social media profile picture with a frame</h2>
 			<div class="row">
 				<div class="alert <?=$alert_type;?>"><?=$message;?></div>
+			</div>
+			<div>
+				<table>
+				<tr><th>IMG 1</th><th>IMG 2</th><th>IMG 3</th><th>IMG 4</th></tr>
+				<tr><td><img src="bg0.png" alt="IMG 1" class="thumb" /></td><td><img src="bg1.png" alt="IMG 2" class="thumb" /></td><td><img src="bg2.png" alt="IMG 3" class="thumb" /></td><td><img src="bg3.png" alt="IMG 4" class="thumb" /></td></tr>
+				</table>
 			</div>
 			<div class="row">
 				<form class="form-inline" action="index.php" method="post" enctype="multipart/form-data">
 					<p>
 					<label for="stamp">Add frame:</label>
 					<select name="stamp" id="stamp">
-					  <option value="bg3.png" <?php if ($_POST["stamp"] == "bg3.png") echo "selected"; ?>>Svobodní Patrioti pro Prahu 4</option>
-					  <option value="bg1.png" <?php if ($_POST["stamp"] == "bg1.png") echo "selected"; ?>>Svobodní 2022 v.1</option>
-					  <option value="bg2.png" <?php if ($_POST["stamp"] == "bg2.png") echo "selected"; ?>>Svobodní 2022 v.2</option>
+					  <option value="bg0.png" <?php if ($_POST["stamp"] == "bg0.png") echo "selected"; ?>>IMG 1</option>
+					  <option value="bg1.png" <?php if ($_POST["stamp"] == "bg1.png") echo "selected"; ?>>IMG 2</option>
+					  <option value="bg2.png" <?php if ($_POST["stamp"] == "bg2.png") echo "selected"; ?>>IMG 3</option>
+					  <option value="bg3.png" <?php if ($_POST["stamp"] == "bg3.png") echo "selected"; ?>>IMG 4</option>
 					</select>
 					</p>
 					<input type="file" name="fileToUpload" id="fileToUpload" style="display:none;" onchange="this.form.submit();" ondrag="this.form.submit();"/>
-					<label for="fileToUpload" id="img-area" ondrag="this.form.submit();">Click to select file</label>
+					<label for="fileToUpload" id="img-area" ondrag="this.form.submit();">Click to select a file from your computer</label>
 				</form>
+				<p>Processing starts automatically after you select a file (larger files may take a while)</p>
+				<p>The file will be cropped to square shape and reduced to 1000x1000px if needed</p>
 			</div>
 			<hr />
 			<div class="row">
 				<?php if (isset($output)) { ?>
-					<p><img src="<?=$output . "?" . filemtime($output) ;?>" /></p>
+					<p><img src="<?=$output . "?" . filemtime($output) ;?>" class="res" /></p>
 				<?php } ?>
 			</div>
 			<hr />
 			<div class="row">
+				<p>If you like the page and want to customize it for your needs or if you find a bug, feel free to <a href="mailto:alois-seckar@gmail.com">CONTACT ME</a></p>
+				<p>GitHub source - <a href="https://github.com/AloisSeckar/PF-Gen">https://github.com/AloisSeckar/PF-Gen</a></p>
 				<p class="font-weight-light"><a href="http://alois-seckar.cz">Alois Sečkár</a> 2022 | <a href="https://unlicense.org/">UNLICENSE</a></p>
 			</div>
 		</div>

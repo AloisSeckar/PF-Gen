@@ -5,7 +5,23 @@
 	color: #0348a2;
 }
 
-img {
+img.res {
 	width: 500px;
 	height: 500px;
+}
+
+img.thumb {
+	width: 80px;
+	height: 80px;
+}
+
+table {
+	width: 150px;
+	margin: 0 auto;
+	padding: 10px;
+}
+
+td,th {
+	text-align: center;
+	padding: 5px;
 }
