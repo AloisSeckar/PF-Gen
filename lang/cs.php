@@ -1,5 +1,7 @@
 <?php
     // language file - CZECH
+    $lang["lang-cs"] = "Česky";
+    $lang["lang-en"] = "Anglicky";
 
     $lang["dscr"] = "Vylepšete si profilovou fotografii rámečkem";
     $lang["image"] = "Varianta";

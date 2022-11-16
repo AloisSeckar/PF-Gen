@@ -97,6 +97,10 @@
 	
 	<body>
 		<div class="container text-center">
+			<div>
+				<a href="index.php?lang=cs" title="<?=$lang["lang-cs"];?>"><img src="lang/cs.png" alt="cs" height="24"></a>
+				<a href="index.php?lang=en" title="<?=$lang["lang-en"];?>"><img src="lang/en.png" alt="en" height="24"></a>
+			</div>
 			<h1>PF-Gen</h1>
 			<h2><?=$lang["dscr"];?></h2>
 			<div class="row">

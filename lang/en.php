@@ -1,5 +1,7 @@
 <?php
     // language file - ENGLISH
+    $lang["lang-cs"] = "Czech";
+    $lang["lang-en"] = "English";
 
     $lang["dscr"] = "Enhance your social media profile picture with a frame";
     $lang["image"] = "IMG";
